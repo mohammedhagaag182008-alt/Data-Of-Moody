@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Moody DataX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+body{
+  margin:0;
+  background:black;
+  color:#00ffcc;
+  font-family:monospace;
+  overflow:hidden;
+}
+
+
+/* MATRIX BACKGROUND */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+
+/* CONTAINER */
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:20px;
+}
+
+
+/* GLOW EFFECT */
+.glow{
+  text-shadow:0 0 8px #00ffcc;
+}
+
+
+.neon{
+  color:#ff00ff;
+  text-shadow:0 0 8px #ff00ff;
+}
+
+
+/* BOX */
+.box{
+  border:1px solid #00ffcc;
+  padding:15px;
+  margin-top:20px;
+  animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse{
+  0%{box-shadow:0 0 5px #00ffcc;}
+  50%{box-shadow:0 0 20px #00ffcc;}
+  100%{box-shadow:0 0 5px #00ffcc;}
+}
+
+
+/* TYPEWRITER EFFECT */
+.type{
+  overflow:hidden;
+  white-space:nowrap;
+  border-right:2px solid #00ffcc;
+  animation:typing 4s steps(40,end),blink .7s infinite;
+}
+
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+
+@keyframes blink{
+  50%{border-color:transparent}
+}
+
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 18px;
+  background:#00ffcc;
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+}
+
+
+.btn:hover{
+  background:#ff00ff;
+  color:white;
+}
+
+
+/* COLOR CHANGER */
+.colorchange{
+  animation: colorShift 5s infinite;
+}
+
+
+@keyframes colorShift{
+  0%{color:#ff00ff;}
+  25%{color:#ff6600;}
+  50%{color:#00ff00;}
+  75%{color:#00ffff;}
+  100%{color:#ff00ff;}
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- MATRIX SOUND -->
+<audio autoplay>
+  <source src="https://www.soundjay.com/button/sounds/button-16.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- MATRIX CANVAS -->
+<canvas id="matrix"></canvas>
+
+
+<script>
+var c=document.getElementById("matrix");
+var ctx=c.getContext("2d");
+c.height=window.innerHeight;
+c.width=window.innerWidth;
+
+
+var letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%".split("");
+var font_size=16;
+var columns=c.width/font_size;
+var drops=[];
+for(var x=0;x<columns;x++)drops[x]=1;
+
+
+function draw(){
+  ctx.fillStyle="rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle="#0F0";
+  ctx.font=font_size+"px monospace";
+  for(var i=0;i<drops.length;i++){
+    var text=letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text,i*font_size,drops[i]*font_size);
+    if(drops[i]*font_size>c.height && Math.random()>0.975)drops[i]=0;
+    drops[i]++;
+  }
+}
+setInterval(draw,35);
+</script>
+
+
+<div class="container">
+
+
+<pre class="glow">
+███╗ ███╗ ██████╗ ██████╗ ██████╗ ██╗ ██╗
+████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝
+██╔████╔██║██║ ██║██║ ██║██║ ██║ ╚████╔╝ 
+██║╚██╔╝██║██║ ██║██║ ██║██║ ██║ ╚██╔╝  
+██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝ ██║   
+╚═╝ ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝   
+</pre>
+
+
+<p class="type glow">Welcome Moody Hagag | Access Granted ✔</p>
+
+
+<div class="box">
+<p>👤 <b>Name</b> : <span class="colorchange">Moody Hagag</span></p>
+<p>📞 <b>Phone</b> : <span class="colorchange">01029812013</span></p>
+<p>📧 <b>Gmail</b> : <span class="colorchange">MoodyDatax@gmail.com</span></p>
+<p>📡 <b>Telegram</b> : 
+<a class="colorchange" href="https://t.me/Moody_DataX" target="_blank">@Moody_DataX</a></p>
+
+
+<hr>
+
+
+<p>🚀 <b>Channel 1</b> :
+<a class="colorchange" href="https://t.me/GalaxyDataX" target="_blank">
+t.me/GalaxyDataX
+</a></p>
+
+
+<p>🌌 <b>Channel 2</b> :
+<a class="colorchange" href="https://t.me/L_0_u_r_d" target="_blank">
+t.me/L_0_u_r_d
+</a></p>
+</div>
+
+
+<p class="glow" style="margin-top:20px;">
+⚡ عمك من أهم الشخصيات ⚡
+</p>
+
+
+<a class="btn" href="https://t.me/Moody_DataX" target="_blank">
+🔐 Access System
+</a>
+
+
+</div>
+
+
+</body>
+</html>
